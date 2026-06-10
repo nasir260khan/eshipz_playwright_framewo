@@ -38,11 +38,19 @@
 
 
 
+import os
+import sys
 import pytest
 from playwright.sync_api import sync_playwright
 
-from utils.config import BASE_URL
-from utils.login import login
+# Ensure package-local imports like `import utils.*` work when running pytest
+# Add workspace root and package dir so both `eshipz_framework.*` and `utils.*` resolve
+workspace_root = os.path.dirname(os.path.dirname(__file__))
+sys.path.insert(0, workspace_root)
+sys.path.insert(0, os.path.dirname(__file__))
+
+from .utils.config import BASE_URL
+from .utils.login import login
 
 login_done = False
 
