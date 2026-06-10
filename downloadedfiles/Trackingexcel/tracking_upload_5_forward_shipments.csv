@@ -1,0 +1,6 @@
+﻿carrier_id,order_id,awb,order_source,shipment_type,parcel_type,payment_type,company,first_name,last_name,email,phone,products,invoice_value,sender.contact_name,sender.company_name,sender.address,sender.postal_code,sender.state,sender.city,sender.email,sender.country,receiver.contact_name,receiver.company_name,receiver.address,receiver.postal_code,receiver.state,receiver.city,receiver.email,receiver.country
+,AUTO677804,95759114249,,forward,,,,Test1,User,test1@gmail.com,9861432507,,,,,,,,,,,,,,,,,,
+,AUTO922342,95509578383,,forward,,,,Test2,User,test2@gmail.com,9863744396,,,,,,,,,,,,,,,,,,
+,AUTO487125,98535734490,,forward,,,,Test3,User,test3@gmail.com,9895732838,,,,,,,,,,,,,,,,,,
+,AUTO638528,99750261062,,forward,,,,Test4,User,test4@gmail.com,9825020994,,,,,,,,,,,,,,,,,,
+,AUTO119053,98958705494,,forward,,,,Test5,User,test5@gmail.com,9862158629,,,,,,,,,,,,,,,,,,

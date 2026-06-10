@@ -1,0 +1,11 @@
+downloads/
+screenshots/
+__pycache__/
+*.pyc
+*.log
+.env
+.idea/
+venv/
+.venv/videos/
+eshipz_framework/bulk_*.xlsx
+.venv/

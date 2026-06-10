@@ -1,0 +1,117 @@
+name: Full Playwright Test Suite
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  sequential-tests:
+    name: 🧪 Sequential Playwright Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: 📦 Install dependencies once
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pandas playwright reportlab
+          python -m playwright install --with-deps
+
+      # === Superadmin Test ===
+      - name: ▶️ Run Superadmin test
+        run: |
+          rm -rf videos && mkdir -p videos
+          pytest playwrite_channelsmart-automation/superadmin_git/superadmin.py \
+            --maxfail=5 --disable-warnings --capture=no \
+            --junitxml=superadmin-test-report.xml | tee superadmin-console.log
+
+
+      - name: ⬆️ Upload Superadmin Videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: superadmin-videos
+          path: videos
+
+      - name: ⬆️ Upload Superadmin Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: superadmin-test-report
+          path: superadmin-test-report.xml
+
+      - name: ⬆️ Upload Superadmin Console Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: superadmin-console-log
+          path: superadmin-console.log
+
+      # === Subadmin Test ===
+      - name: ▶️ Run Subadmin test
+        run: |
+          rm -rf videos && mkdir -p videos
+          pytest playwrite_channelsmart-automation/subadmin_git/subadmin.py \
+            --maxfail=5 --disable-warnings --capture=no \
+            --junitxml=subadmin-test-report.xml | tee subadmin-console.log
+
+
+      - name: ⬆️ Upload Subadmin Videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: subadmin-videos
+          path: videos
+
+      - name: ⬆️ Upload Subadmin Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: subadmin-test-report
+          path: subadmin-test-report.xml
+
+
+      - name: ⬆️ Upload Subadmin Console Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: subadmin-console-log
+          path: subadmin-console.log
+
+      # === ESA Agent Test ===
+      - name: ▶️ Run ESA Agent test
+        run: |
+          rm -rf videos && mkdir -p videos
+          pytest playwrite_channelsmart-automation/esaagent_git/esa.py \
+            --maxfail=5 --disable-warnings --capture=no \
+            --junitxml=esaagent-test-report.xml | tee esaagent-console.log
+
+      - name: ⬆️ Upload ESA Agent Videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: esaagent-videos
+          path: videos
+
+      - name: ⬆️ Upload ESA Agent Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: esaagent-test-report
+          path: esaagent-test-report.xml
+
+      - name: ⬆️ Upload ESA Agent Console Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: esaagent-console-log
+          path: esaagent-console.log

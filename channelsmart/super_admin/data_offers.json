@@ -1,0 +1,22 @@
+[
+    {
+      "offer_code": "OFFER002",
+      "offer_description": "10% off on all Surface shipments",
+      "package_value": "a",
+      "start_date": "2024-02-01",
+      "end_date": "2024-02-28",
+      "created_by": "admin_user",
+      "offer_regions": "west1",
+      "services": "Surface"
+    },
+    {
+      "offer_code": "OFFER002",
+      "offer_description": "Flat $5 off on Apex deliveries",
+      "package_value": "b",
+      "start_date": "2024-02-05",
+      "end_date": "2024-02-20",
+      "created_by": "marketing_team",
+      "offer_regions": "south1",
+      "services": "Apex"
+    }
+]

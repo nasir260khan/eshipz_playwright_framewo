@@ -1,0 +1,46 @@
+{
+
+  "shipment_type": "Parcel",
+  "parcel_description": "mobile",
+
+  "seller": {
+    "first_name": "Madhu",
+    "company": "Maraki Logistics",
+    "address1": "Address line 1",
+    "address2": "Address line 2",
+    "address3": "Address line 3",
+    "country": "IN",
+    "pincode": "110002",
+    "state": "Kerala",
+    "city": "Mumbai",
+    "phone": "7887788894",
+    "email": "seller@test.com"
+  },
+
+  "customer": {
+    "first_name": "Raj",
+    "company": "Customer Pvt Ltd",
+    "address1": "Customer Address1",
+    "address2": "Customer Address2",
+    "address3": "Customer Address3",
+    "country": "IN",
+    "pincode": "560023",
+    "state": "Goa",
+    "city": "Bangalore",
+    "phone": "9876543210",
+    "email": "customer@test.com"
+  },
+
+  "invoice": {
+    "number": "900",
+    "value": "7888"
+  },
+
+  "box": {
+    "qty": "1",
+    "weight": "33",
+    "height": "4",
+    "width": "44",
+    "length": "3"
+  }
+}

@@ -1,0 +1,54 @@
+{
+
+  "shipment_type": "Parcel",
+  "order_status": "open",
+  "customer": {
+    "first_name": "Madhu",
+    "last_name": "Ganesh",
+    "company": "MG Pvt Ltd",
+    "address": "#1 ABC Street, Bangalore",
+    "pincode": "560023",
+    "city": "Bengaluru",
+    "phone": "9876543210",
+    "email": "customer@example.com",
+    "country": "India",
+    "state": "Karnataka"
+  },
+  "seller": {
+    "first_name": "Rahul",
+    "last_name": "Sharma",
+    "company": "Eshipz Pvt Ltd",
+    "address": "HSR Layout, Bangalore",
+    "pincode": "110002",
+    "city": "Bengaluru",
+    "phone": "9876540000",
+    "email": "seller@example.com",
+    "country": "India",
+    "state": "Karnataka"
+  },
+  "item": {
+    "name": "Phone Case",
+    "sku": "SKU-001",
+    "hs_code": "12345678",
+    "value": "500",
+    "qty": "2",
+    "weight": "0.5",
+    "length": "10",
+    "width": "6",
+    "height": "3"
+  },
+  "invoice": {
+    "number": "INV001",
+    "value": "1000",
+    "eway": "9988776655",
+    "date": "2025-10-20"
+  },
+  "box": {
+    "qty": "1",
+    "weight": "1",
+    "height": "10",
+    "width": "10",
+    "length": "10",
+    "case_no": "CSE123"
+  }
+}
