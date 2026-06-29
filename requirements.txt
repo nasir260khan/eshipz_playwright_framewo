@@ -4,6 +4,8 @@ playwright
 pytest-playwright
 openpyxl
 pdfplumber
+PyPDF2
 requests
 pandas
 python-docx
+pymupdf
