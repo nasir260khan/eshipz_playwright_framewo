@@ -1,0 +1,9 @@
+pytest
+pytest-rerunfailures
+playwright
+pytest-playwright
+openpyxl
+pdfplumber
+requests
+pandas
+python-docx
