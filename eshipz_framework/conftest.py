@@ -55,10 +55,14 @@ from .utils.login import login
 login_done = False
 
 
+def is_headless_mode():
+    return os.getenv("CI", "").lower() in {"1", "true", "yes"} or os.getenv("PLAYWRIGHT_HEADLESS", "").lower() in {"1", "true", "yes"}
+
+
 @pytest.fixture(scope="session")
 def browser():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, slow_mo=300)
+        browser = p.chromium.launch(headless=is_headless_mode(), slow_mo=0 if is_headless_mode() else 300)
         yield browser
         browser.close()
 

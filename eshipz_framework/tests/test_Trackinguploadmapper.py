@@ -1,3 +1,4 @@
+import os
 import re
 import csv
 import random
@@ -135,13 +136,17 @@ def upload_tracking_csv(page, csv_path):
     print(f"✅ Uploaded File: {csv_path.name}")
 
 
+def is_headless_mode():
+    return os.getenv("CI", "").lower() in {"1", "true", "yes"} or os.getenv("PLAYWRIGHT_HEADLESS", "").lower() in {"1", "true", "yes"}
+
+
 def test_tracking_credit_deduction():
 
     with sync_playwright() as p:
 
         browser = p.chromium.launch(
-            headless=False,
-            slow_mo=500
+            headless=is_headless_mode(),
+            slow_mo=0 if is_headless_mode() else 500
         )
 
         context = browser.new_context()

@@ -222,10 +222,14 @@ import random
 from playwright.sync_api import sync_playwright
 
 
+def is_headless_mode():
+    return os.getenv("CI", "").lower() in {"1", "true", "yes"} or os.getenv("PLAYWRIGHT_HEADLESS", "").lower() in {"1", "true", "yes"}
+
+
 def run():
     with sync_playwright() as p:
 
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=is_headless_mode())
         context = browser.new_context()
         page = context.new_page()
 

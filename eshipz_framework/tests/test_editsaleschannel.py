@@ -1,5 +1,6 @@
 # "status": "PENDING", for cod change api as these  for prepaid use thse "status": "SUCCESS","gateway": "Razorpay",
 #   "gateway": "Cash on Delivery",
+import os
 import random
 import re
 import json
@@ -22,14 +23,18 @@ ESHIPZ_PASS = "password"
 # PLAYWRIGHT FIXTURE
 # =========================
 
+def is_headless_mode():
+    return os.getenv("CI", "").lower() in {"1", "true", "yes"} or os.getenv("PLAYWRIGHT_HEADLESS", "").lower() in {"1", "true", "yes"}
+
+
 @pytest.fixture(scope="function")
 def page():
 
     with sync_playwright() as p:
 
         browser = p.chromium.launch(
-            headless=False,
-            slow_mo=400
+            headless=is_headless_mode(),
+            slow_mo=0 if is_headless_mode() else 400
         )
 
         page = browser.new_page()

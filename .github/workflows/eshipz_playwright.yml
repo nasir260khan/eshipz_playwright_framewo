@@ -32,33 +32,43 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-playwright playwright pytest-rerunfailures pdfplumber
+          pip install -r ../requirements.txt
           python -m playwright install --with-deps
 
       - name: Run Order Sanity Test
         run: pytest tests/test_order_sanity.py -s --reruns 2 || true
         env:
           BASE_URL: ${{ github.event.inputs.environment == 'prod' && 'https://app.eshipz.com' || 'https://uat.eshipz.com:444' }}
+          CI: true
+          PLAYWRIGHT_HEADLESS: true
 
       - name: Run Order Shipment Creation
         run: pytest tests/test_order_shipment_creation.py -s --reruns 2 || true
         env:
           BASE_URL: ${{ github.event.inputs.environment == 'prod' && 'https://app.eshipz.com' || 'https://uat.eshipz.com:444' }}
+          CI: true
+          PLAYWRIGHT_HEADLESS: true
 
       - name: Run Sanity Shipment Flow
         run: pytest tests/test_sanity_shipment_flow_v2.py -s --reruns 2 || true
         env:
           BASE_URL: ${{ github.event.inputs.environment == 'prod' && 'https://app.eshipz.com' || 'https://uat.eshipz.com:444' }}
+          CI: true
+          PLAYWRIGHT_HEADLESS: true
 
       - name: Run All Shipments Test
         run: pytest tests/test_all_shipments_v2.py -s --reruns 2 || true
         env:
           BASE_URL: ${{ github.event.inputs.environment == 'prod' && 'https://app.eshipz.com' || 'https://uat.eshipz.com:444' }}
+          CI: true
+          PLAYWRIGHT_HEADLESS: true
 
       - name: Run Reverse Sanity Flow
         run: pytest tests/test_reverse_sanity.py -s --reruns 2 || true
         env:
           BASE_URL: ${{ github.event.inputs.environment == 'prod' && 'https://app.eshipz.com' || 'https://uat.eshipz.com:444' }}
+          CI: true
+          PLAYWRIGHT_HEADLESS: true
 
 
       - name: Upload Playwright Videos
